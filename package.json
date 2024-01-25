@@ -1,0 +1,76 @@
+{
+    "name": "ut-registration-plus",
+    "displayName": "UT Registration Plus",
+    "version": "0.0.1",
+    "description": "The UT Registration Plus extension is a Chrome extension that allows students to easily register for classes at The University of Texas at Austin.",
+    "private": true,
+    "homepage": "sriramhariharan.com",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview",
+        "devtools": "react-devtools",
+        "preinstall": "npx only-allow pnpm"
+    },
+    "dependencies": {
+        "@types/sql.js": "^1.4.9",
+        "@vitejs/plugin-react": "^4.2.1",
+        "chrome-extension-toolkit": "^0.0.51",
+        "classnames": "^2.3.2",
+        "highcharts": "^11.2.0",
+        "highcharts-react-official": "^3.2.1",
+        "react": "^18.2.0",
+        "react-devtools-core": "^5.0.0",
+        "react-dom": "^18.2.0",
+        "sass": "^1.69.5",
+        "sql.js": "1.9.0",
+        "uuid": "^9.0.1"
+    },
+    "devDependencies": {
+        "@crxjs/vite-plugin": "2.0.0-beta.21",
+        "@types/chrome": "^0.0.254",
+        "@types/node": "^20.10.5",
+        "@types/prompts": "^2.4.9",
+        "@types/react": "^18.2.45",
+        "@types/react-dom": "^18.2.18",
+        "@types/semver": "^7.5.6",
+        "@types/uuid": "^9.0.7",
+        "@typescript-eslint/eslint-plugin": "^6.15.0",
+        "@typescript-eslint/parser": "^6.15.0",
+        "@vitejs/plugin-react-swc": "^3.5.0",
+        "cssnano": "^6.0.2",
+        "cssnano-preset-advanced": "^6.0.2",
+        "dotenv": "^16.0.3",
+        "es-module-lexer": "^1.4.1",
+        "eslint": "^8.56.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-airbnb-typescript": "^17.1.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-import-resolver-typescript": "^3.6.1",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-jsdoc": "^46.9.1",
+        "eslint-plugin-prettier": "^5.1.1",
+        "eslint-plugin-react": "^7.33.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-prefer-function-component": "^3.3.0",
+        "eslint-plugin-react-refresh": "^0.4.5",
+        "path": "^0.12.7",
+        "postcss": "^8.4.32",
+        "prettier": "^3.1.1",
+        "react-dev-utils": "^12.0.1",
+        "react-devtools": "^4.27.1",
+        "typescript": "^5.3.3",
+        "vite": "^5.0.10",
+        "vite-plugin-inspect": "^0.8.1"
+    },
+    "pnpm": {
+        "patchedDependencies": {
+            "@crxjs/vite-plugin@2.0.0-beta.21": "patches/@crxjs__vite-plugin@2.0.0-beta.21.patch"
+        },
+        "overrides": {
+            "es-module-lexer": "^1.4.1"
+        }
+    }
+}
