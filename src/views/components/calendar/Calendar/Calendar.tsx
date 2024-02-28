@@ -5,15 +5,11 @@ import { CalendarSchedules } from '@views/components/calendar/CalendarSchedules/
 import ImportantLinks from '@views/components/calendar/ImportantLinks';
 import React from 'react';
 import { Course } from 'src/shared/types/Course';
-import { exampleCourse } from 'src/stories/components/PopupCourseBlock.stories';
-import CalendarHeader from 'src/views/components/calendar/CalendarHeader/CalenderHeader';
+import { ExampleCourse } from 'src/stories/components/PopupCourseBlock.stories';
 import { useFlattenedCourseSchedule } from 'src/views/hooks/useFlattenedCourseSchedule';
 import { UserSchedule } from 'src/shared/types/UserSchedule';
 import CourseCatalogInjectedPopup from '../../injected/CourseCatalogInjectedPopup/CourseCatalogInjectedPopup';
-import { CalendarBottomBar } from '../CalendarBottomBar/CalendarBottomBar';
-import CalendarGrid from '../CalendarGrid/CalendarGrid';
-import { CalendarSchedules } from '../CalendarSchedules/CalendarSchedules';
-import ImportantLinks from '../ImportantLinks';
+
 
 
 export const flags = ['WR', 'QR', 'GC', 'CD', 'E', 'II'];
@@ -51,7 +47,7 @@ export function Calendar(): JSX.Element {
             </div>
             {/* TODO: Doesn't work when exampleCourse is replaced with an actual course through setCourse. 
                 Check CalendarGrid.tsx and AccountForCourseConflicts for an example */}
-            {course ? <CourseCatalogInjectedPopup course = {exampleCourse} activeSchedule = {activeSchedule} onClose={() => setCourse(null)}/> : null}
+            {course ? <CourseCatalogInjectedPopup course = {ExampleCourse} activeSchedule = {activeSchedule} onClose={() => setCourse(null)}/> : null}
         </div>
     );
 }
