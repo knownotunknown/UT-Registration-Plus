@@ -1,3 +1,8 @@
+import { CalendarBottomBar } from '@views/components/calendar/CalendarBottomBar/CalendarBottomBar';
+import CalendarGrid from '@views/components/calendar/CalendarGrid/CalendarGrid';
+import CalendarHeader from '@views/components/calendar/CalendarHeader/CalenderHeader';
+import { CalendarSchedules } from '@views/components/calendar/CalendarSchedules/CalendarSchedules';
+import ImportantLinks from '@views/components/calendar/ImportantLinks';
 import React from 'react';
 import { Course } from 'src/shared/types/Course';
 import { exampleCourse } from 'src/stories/components/PopupCourseBlock.stories';

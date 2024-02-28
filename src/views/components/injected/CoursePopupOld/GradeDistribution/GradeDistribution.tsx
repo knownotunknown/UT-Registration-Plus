@@ -1,4 +1,3 @@
- 
 import type { Course, Semester } from '@shared/types/Course';
 import type { Distribution, LetterGrade } from '@shared/types/Distribution';
 import Card from '@views/components/common/Card/Card';
@@ -17,18 +16,20 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import styles from './GradeDistribution.module.scss';
 
-enum DataStatus {
-    LOADING = 'LOADING',
-    FOUND = 'FOUND',
-    NOT_FOUND = 'NOT_FOUND',
-    ERROR = 'ERROR',
-}
+const DataStatus = {
+    LOADING: 'LOADING',
+    FOUND: 'FOUND',
+    NOT_FOUND: 'NOT_FOUND',
+    ERROR: 'ERROR',
+} as const;
+
+type DataStatusType = (typeof DataStatus)[keyof typeof DataStatus];
 
 interface Props {
     course: Course;
 }
 
-const GRADE_COLORS: Record<LetterGrade, string> = {
+const GRADE_COLORS = {
     A: colors.turtle_pond,
     'A-': colors.turtle_pond,
     'B+': colors.cactus,
@@ -41,7 +42,7 @@ const GRADE_COLORS: Record<LetterGrade, string> = {
     D: colors.tangerine,
     'D-': colors.tangerine,
     F: colors.speedway_brick,
-};
+} as const satisfies Record<LetterGrade, string>;
 
 /**
  * A chart to fetch and display the grade distribution for a course
@@ -52,7 +53,7 @@ export default function GradeDistribution({ course }: Props) {
     const [semesters, setSemesters] = useState<Semester[]>([]);
     const [selectedSemester, setSelectedSemester] = useState<Semester | null>(null);
     const [distribution, setDistribution] = useState<Distribution | null>(null);
-    const [status, setStatus] = useState<DataStatus>(DataStatus.LOADING);
+    const [status, setStatus] = useState<DataStatusType>(DataStatus.LOADING);
 
     const [chartOptions, setChartOptions] = useState<Highcharts.Options>({
         title: {
@@ -207,7 +208,7 @@ export default function GradeDistribution({ course }: Props) {
                     <Text color='speedway_brick' /* size='medium' weight='semi_bold'    */>
                         There was an error fetching the grade distribution data
                     </Text>
-                    <Icon color='speedway_brick' /* size='large'  */ name='sentiment_dissatisfied'    />
+                    <Icon color='speedway_brick' /* size='large'  */ name='sentiment_dissatisfied' />
                 </Card>
             )}
             {status === DataStatus.NOT_FOUND && (

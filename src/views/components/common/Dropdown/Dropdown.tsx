@@ -1,14 +1,16 @@
 import { Disclosure, Transition } from '@headlessui/react';
 import type { UserSchedule } from '@shared/types/UserSchedule';
+import List from '@views/components/common/List/List';
+import Text from '@views/components/common/Text/Text';
 import React from 'react';
 import userScheduleHandler from 'src/pages/background/handler/userScheduleHandler';
 
 import DropdownArrowDown from '~icons/material-symbols/arrow-drop-down';
 import DropdownArrowUp from '~icons/material-symbols/arrow-drop-up';
 
-import List from '../List/List';
-import Text from '../Text/Text';
-
+/**
+ * Props for the Dropdown component.
+ */
 export type Props = {
     style?: React.CSSProperties;
     // Dummy value solely for storybook

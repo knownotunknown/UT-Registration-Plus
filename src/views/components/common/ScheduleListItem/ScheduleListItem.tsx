@@ -1,10 +1,12 @@
+import Text from '@views/components/common/Text/Text';
 import clsx from 'clsx';
 import React from 'react';
 
 import DragIndicatorIcon from '~icons/material-symbols/drag-indicator';
 
-import Text from '../Text/Text';
-
+/**
+ * Props for the ScheduleListItem component.
+ */
 export type Props = {
     style?: React.CSSProperties;
     active?: boolean;

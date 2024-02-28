@@ -1,19 +1,26 @@
 import type { UserSchedule } from '@shared/types/UserSchedule';
-import React, { useState, useEffect } from 'react';
-import useSchedules from 'src/views/hooks/useSchedules';
-import createSchedule from 'src/pages/background/lib/createSchedule';
-import AddSchedule from '~icons/material-symbols/add';
-import List from '../../common/List/List';
-import ScheduleListItem from '../../common/ScheduleListItem/ScheduleListItem';
-import Text from '../../common/Text/Text';
-import switchSchedule from 'src/pages/background/lib/switchSchedule';
+import List from '@views/components/common/List/List';
+import ScheduleListItem from '@views/components/common/ScheduleListItem/ScheduleListItem';
+import Text from '@views/components/common/Text/Text';
+import React, { useState } from 'react';
 
+import AddSchedule from '~icons/material-symbols/add';
+
+/**
+ * Props for the CalendarSchedules component.
+ */
 export type Props = {
     style?: React.CSSProperties;
     dummySchedules?: UserSchedule[];
     dummyActiveIndex?: number;
 };
 
+/**
+ * Renders a component that displays a list of schedules.
+ *
+ * @param props - The component props.
+ * @returns The rendered component.
+ */
 export function CalendarSchedules(props: Props) {
     const [activeScheduleIndex, setActiveScheduleIndex] = useState(0);
     const [newSchedule, setNewSchedule] = useState('');

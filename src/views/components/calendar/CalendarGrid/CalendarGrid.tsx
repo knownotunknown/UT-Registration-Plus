@@ -1,14 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
-//  import html2canvas from 'html2canvas';
-import { DAY_MAP } from 'src/shared/types/CourseMeeting';
-import { CalendarGridCourse } from 'src/views/hooks/useFlattenedCourseSchedule';
+import CalendarCourseCell from '@views/components/calendar/CalendarCourseCell/CalendarCourseCell';
 /*  import calIcon from 'src/assets/icons/cal.svg';
 import pngIcon from 'src/assets/icons/png.svg';
 */
-import { Course } from 'src/shared/types/Course';
-import { getCourseColors } from 'src/shared/util/colors';
-import CalendarCell from '../CalendarGridCell/CalendarGridCell';
-import CalendarCourseCell from '../CalendarCourseCell/CalendarCourseCell';
+import CalendarCell from '@views/components/calendar/CalendarGridCell/CalendarGridCell';
+import type { CalendarGridCourse } from '@views/hooks/useFlattenedCourseSchedule';
+import React, { useEffect, useRef, useState } from 'react';
+//  import html2canvas from 'html2canvas';
+import { DAY_MAP } from 'src/shared/types/CourseMeeting';
+
 import styles from './CalendarGrid.module.scss';
 
 

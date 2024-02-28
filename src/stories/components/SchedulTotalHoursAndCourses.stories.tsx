@@ -11,7 +11,7 @@ const meta = {
     argTypes: {
         scheduleName: { control: 'text' },
         totalHours: { control: 'number' },
-        totalCourses: { control: 'number' }
+        totalCourses: { control: 'number' },
     },
 } satisfies Meta<typeof ScheduleTotalHoursAndCourses>;
 export default meta;
@@ -22,6 +22,6 @@ export const Default: Story = {
     args: {
         scheduleName: 'SCHEDULE',
         totalHours: 22,
-        totalCourses: 8
+        totalCourses: 8,
     },
 };

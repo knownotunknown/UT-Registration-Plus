@@ -1,14 +1,8 @@
-import { Course, Status } from '@shared/types/Course';
+import { Status } from '@shared/types/Course';
 import { getCourseColors } from '@shared/util/colors';
 import type { Meta, StoryObj } from '@storybook/react';
+import CalendarGrid from '@views/components/calendar/CalendarGrid/CalendarGrid';
 import type { CalendarGridCourse } from '@views/hooks/useFlattenedCourseSchedule';
-import type { Serialized } from 'chrome-extension-toolkit';
-import { CourseMeeting, DAY_MAP } from 'src/shared/types/CourseMeeting';
-import { CourseSchedule } from 'src/shared/types/CourseSchedule';
-import Instructor from 'src/shared/types/Instructor';
-import { UserSchedule } from 'src/shared/types/UserSchedule';
-import CalendarGrid from 'src/views/components/calendar/CalendarGrid/CalendarGrid';
-
 
 const meta = {
     title: 'Components/Calendar/CalendarGrid',

@@ -1,6 +1,6 @@
 import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
-import React, { ReactElement, useCallback, useState, useEffect } from 'react';
-import { areEqual } from 'react-window';
+import type { ReactElement } from 'react';
+import React, { useCallback, useState } from 'react';
 
 /*
  * Ctrl + f dragHandleProps on PopupCourseBlock.tsx for example implementation of drag handle (two lines of code)
@@ -74,7 +74,7 @@ const Row: React.FC<RowProps> = React.memo(({ data: { items, gap }, index, style
             {provided => <Item provided={provided} item={item} style={adjustedStyle} gap={gap} />}
         </Draggable>
     );
-}, areEqual);
+});
 
 /**
  * `List` is a functional component that displays a course meeting.
