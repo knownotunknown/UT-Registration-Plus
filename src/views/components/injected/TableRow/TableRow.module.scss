@@ -2,15 +2,15 @@
 
 .row {
     > td:first-child {
-        padding-left: 12px !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
+        padding-left: 12px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     > td:last-child {
-        padding-right: 12px !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
+        padding-right: 12px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     > * {
@@ -31,9 +31,9 @@
             border-radius: 0px 5px 5px 0px;
             opacity: 0.5;
             div {
-                color: white !important;
-                text-decoration: none !important;
-                font-weight: normal !important;
+                color: white;
+                text-decoration: none;
+                font-weight: normal;
             }
         }
     }
@@ -61,20 +61,20 @@
 
 .selectedRow {
     > * {
-        background: colors.$burnt_orange !important;
-        color: white !important;
-        box-shadow: none !important;
+        background: colors.$burnt_orange;
+        color: white;
+        box-shadow: none;
     }
     .rowButton {
-        background: colors.$burnt_orange !important;
-        box-shadow: none !important;
+        background: colors.$burnt_orange;
+        box-shadow: none;
     }
 }
 
 .inActiveSchedule {
     > *:not(td:last-child) {
-        color: colors.$turtle_pond !important;
-        font-weight: bold !important;
+        color: colors.$turtle_pond;
+        font-weight: bold;
     }
 }
 
