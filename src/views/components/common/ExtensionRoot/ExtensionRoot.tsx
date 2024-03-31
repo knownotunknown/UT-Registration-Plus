@@ -4,6 +4,7 @@ import 'uno.css';
 import clsx from 'clsx';
 import React from 'react';
 
+import ShadowRootAttacher from '../ShadowDOM/ShadowDOM';
 import styles from './ExtensionRoot.module.scss';
 
 interface Props {
@@ -16,10 +17,10 @@ interface Props {
  */
 export default function ExtensionRoot(props: React.PropsWithChildren<Props>): JSX.Element {
     return (
-        <React.StrictMode>
-            <div className={clsx(styles.extensionRoot, props.className)} data-testid={props.testId}>
-                {props.children}
-            </div>
-        </React.StrictMode>
+        
+            <><div className={clsx(styles.extensionRoot, props.className)} data-testid={props.testId}>
+            {props.children}
+        </div></>
+        
     );
 }

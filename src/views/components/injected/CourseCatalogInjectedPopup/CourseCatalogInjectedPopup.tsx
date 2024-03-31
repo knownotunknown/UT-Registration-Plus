@@ -30,14 +30,16 @@ function CourseCatalogInjectedPopup({ course, ...rest }: CourseCatalogInjectedPo
     const [activeSchedule] = useSchedules();
 
     return (
-        <Dialog className='max-w-[780px] overflow-y-hidden px-4' {...rest} initialFocus={emptyRef}>
-            <div className='hidden' ref={emptyRef} />
-            <HeadingAndActions course={course} onClose={rest.onClose as () => void} activeSchedule={activeSchedule} />
-            <div className='overflow-y-auto px-2'>
-                <Description course={course} />
-                <GradeDistribution course={course} />
-            </div>
-        </Dialog>
+        <div className='utrp_shadow'> {/* utrp_shadow creates a ShadowDOM subtree to protect CSS styles */}
+            <Dialog className='max-w-[780px] overflow-y-hidden px-4' {...rest} initialFocus={emptyRef}>
+                <div className='hidden' ref={emptyRef} />
+                <HeadingAndActions course={course} onClose={rest.onClose as () => void} activeSchedule={activeSchedule} />
+                <div className='overflow-y-auto px-2'>
+                    <Description course={course} />
+                    <GradeDistribution course={course} />
+                </div>
+            </Dialog>
+        </div>
     );
 }
 
