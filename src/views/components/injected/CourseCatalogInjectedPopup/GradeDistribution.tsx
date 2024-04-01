@@ -163,16 +163,37 @@ export default function GradeDistribution({ course }: GradeDistributionProps): J
         credits: { enabled: false },
         accessibility: { enabled: true },
         tooltip: {
-            headerFormat: '<span style="font-size:small; font-weight:bold">{point.key}</span><table>',
+            headerFormat: '<span style="font-size:small; font-weight:bold; text-align:center; font-family:Roboto Flex; font-size:0.88875rem; line-height:normal;">{point.key}</span><table>',
             pointFormat:
-                '<td style="color:{black};padding:0;font-size:small; font-weight:bold;"><b>{point.y:.0f} Students</b></td>',
+                '<td style="color:#1A2024;padding:0;font-size:small; font-weight:500; text-align:center; font-family:Roboto Flex;"><b>{point.y:.0f} Students</b></td>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true,
+            backgroundColor: 'rgba(214, 210, 196, 0.25)', 
+            style: {
+                borderRadius: 4,
+            },
+            shadow: {
+                offsetX: 0,
+                offsetY: 1,
+                width: 2,
+                opacity: 0.3,
+                color: 'rgba(51, 63, 72, 0.30)'
+            } // Need to add second box shadow somehow
         },
         plotOptions: {
+            series: {
+                states: {
+                    hover: {
+                        halo: {
+                            size: 0, 
+                        },
+                        fillColor: 'rgba(214, 210, 196, 0.25)' 
+                    }
+                },
+            },
             bar: { pointPadding: 0.2, borderWidth: 0 },
-            series: { animation: { duration: 700 } },
+            // series: { animation: { duration: 700 } },
         },
         series: [
             {
