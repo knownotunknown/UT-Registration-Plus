@@ -89,6 +89,7 @@ export async function replaceSchedule(oldSchedule: UserSchedule, newSchedule: Us
     oldIndex = oldIndex !== -1 ? oldIndex : 0;
     schedules[oldIndex] = newSchedule;
     await UserScheduleStore.set('schedules', schedules);
+    console.log('schedule replaced');
 }
 
 /**
@@ -97,6 +98,7 @@ export async function replaceSchedule(oldSchedule: UserSchedule, newSchedule: Us
  * @returns A promise that resolves when the active schedule has been switched.
  */
 export async function switchSchedule(id: string): Promise<void> {
+    console.log('Switching schedule...');
     const schedules = await UserScheduleStore.get('schedules');
     const activeIndex = schedules.findIndex(s => s.id === id);
     await UserScheduleStore.set('activeIndex', activeIndex);

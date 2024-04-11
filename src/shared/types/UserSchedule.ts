@@ -16,7 +16,7 @@ export class UserSchedule {
 
     constructor(schedule: Serialized<UserSchedule>) {
         this.courses = schedule.courses.map(c => new Course(c));
-        this.id = generateRandomId();
+        this.id = schedule.id ?? generateRandomId();
         this.name = schedule.name;
         this.hours = this.courses.reduce((acc, c) => acc + c.creditHours, 0);
         this.updatedAt = schedule.updatedAt ?? 0;
