@@ -1,7 +1,6 @@
 import { UserScheduleStore } from '@shared/storage/UserScheduleStore';
 import type { Course } from '@shared/types/Course';
 import { getUnusedColor } from '@shared/util/colors';
-import { generateRandomId } from '@shared/util/random';
 
 /**
  * Adds a course to a user's schedule.
@@ -20,7 +19,6 @@ export default async function addCourse(scheduleId: string, course: Course): Pro
     course.colors = getUnusedColor(activeSchedule, course);
     activeSchedule.courses.push(course);
     activeSchedule.updatedAt = Date.now();
-    activeSchedule.id = generateRandomId();
 
     await UserScheduleStore.set('schedules', schedules);
 }

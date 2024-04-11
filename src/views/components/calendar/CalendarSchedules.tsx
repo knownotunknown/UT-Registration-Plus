@@ -41,7 +41,6 @@ export function CalendarSchedules() {
                     onReordered={reordered => {
                         const activeSchedule = getActiveSchedule();
                         const activeIndex = reordered.findIndex(s => s.id === activeSchedule.id);
-                        reordered[activeIndex] = activeSchedule;
 
                         // don't care about the promise
                         UserScheduleStore.set('schedules', reordered);
