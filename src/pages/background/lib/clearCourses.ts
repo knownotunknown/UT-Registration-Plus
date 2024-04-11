@@ -1,4 +1,5 @@
 import { UserScheduleStore } from '@shared/storage/UserScheduleStore';
+import { generateRandomId } from '@shared/util/random';
 
 /**
  * Clears the courses for a given schedule.
@@ -7,12 +8,13 @@ import { UserScheduleStore } from '@shared/storage/UserScheduleStore';
  */
 export default async function clearCourses(scheduleId: string): Promise<void> {
     const schedules = await UserScheduleStore.get('schedules');
-    const schedule = schedules.find(schedule => schedule.id === scheduleId);
-    if (!schedule) {
+    const activeSchedule = schedules.find(schedule => schedule.id === scheduleId);
+    if (!activeSchedule) {
         throw new Error(`Schedule ${scheduleId} does not exist`);
     }
-    schedule.courses = [];
-    schedule.updatedAt = Date.now();
+    activeSchedule.courses = [];
+    activeSchedule.updatedAt = Date.now();
+    activeSchedule.id = generateRandomId();
 
     await UserScheduleStore.set('schedules', schedules);
 }
