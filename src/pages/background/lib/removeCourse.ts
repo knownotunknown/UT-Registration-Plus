@@ -1,5 +1,6 @@
 import { UserScheduleStore } from '@shared/storage/UserScheduleStore';
 import type { Course } from '@shared/types/Course';
+import { generateRandomId } from '@shared/util/random';
 
 /**
  *
@@ -13,6 +14,7 @@ export default async function removeCourse(scheduleId: string, course: Course): 
 
     activeSchedule.courses = activeSchedule.courses.filter(c => c.uniqueId !== course.uniqueId);
     activeSchedule.updatedAt = Date.now();
+    activeSchedule.id = generateRandomId();
 
     await UserScheduleStore.set('schedules', schedules);
 }

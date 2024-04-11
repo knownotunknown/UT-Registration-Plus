@@ -1,4 +1,5 @@
 import { UserScheduleStore } from '@shared/storage/UserScheduleStore';
+import { generateRandomId } from '@shared/util/random';
 
 /**
  * Renames a schedule with the specified name to a new name.
@@ -8,13 +9,14 @@ import { UserScheduleStore } from '@shared/storage/UserScheduleStore';
  */
 export default async function renameSchedule(scheduleId: string, newName: string): Promise<string | undefined> {
     const schedules = await UserScheduleStore.get('schedules');
-    const scheduleIndex = schedules.findIndex(schedule => schedule.id === scheduleId);
-    if (scheduleIndex === -1) {
-        return `Schedule ${scheduleId} does not exist`;
+    const activeSchedule = schedules.find(schedule => schedule.id === scheduleId);
+    if (!activeSchedule) {
+        throw new Error(`Schedule ${scheduleId} does not exist`);
     }
 
-    schedules[scheduleIndex]!.name = newName;
-    // schedules[scheduleIndex].updatedAt = Date.now();
+    activeSchedule.name = newName;
+    activeSchedule.updatedAt = Date.now();
+    activeSchedule.id = generateRandomId();
 
     await UserScheduleStore.set('schedules', schedules);
     return undefined;

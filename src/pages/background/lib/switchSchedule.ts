@@ -1,4 +1,5 @@
 import { UserScheduleStore } from '@shared/storage/UserScheduleStore';
+import { generateRandomId } from '@shared/util/random';
 
 /**
  * Switches the active schedule to the specified schedule name.
@@ -8,13 +9,14 @@ import { UserScheduleStore } from '@shared/storage/UserScheduleStore';
  */
 export default async function switchSchedule(scheduleId: string): Promise<void> {
     const schedules = await UserScheduleStore.get('schedules');
-
-    const scheduleIndex = schedules.findIndex(schedule => schedule.id === scheduleId);
-    if (scheduleIndex === -1) {
+    const activeIndex = schedules.findIndex(schedule => schedule.id === scheduleId)
+    const activeSchedule = schedules.find(schedule => schedule.id === scheduleId);
+    if (!activeSchedule) {
         throw new Error(`Schedule ${scheduleId} does not exist`);
     }
 
-    schedules[scheduleIndex]!.updatedAt = Date.now();
+    activeSchedule.updatedAt = Date.now();
+    activeSchedule.id = generateRandomId();
 
-    await UserScheduleStore.set('activeIndex', scheduleIndex);
+    await UserScheduleStore.set('activeIndex', activeIndex);
 }
